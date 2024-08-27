@@ -14,8 +14,11 @@ src/AddCategoryForm.js: Component for adding new categories.
 src/App.css: Contains styling for the application, including dashboard, sliding panel, and button styles.
 
 ## To run this Project
-cd dashboard
--> Start the Development Server
+git clone https://github.com/poojasree06/dashboard.git
+cd dashboard-master
+## Install Dependencies
+### `npm install`
+## Start the Development Server
 ### `npm start`
 Open your browser and navigate to http://localhost:3000 to view the application.
 ## Available Scripts
