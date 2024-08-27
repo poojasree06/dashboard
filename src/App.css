@@ -1,38 +1,434 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+/* General Styles */
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.dashboard {
+  flex: 1;
+  transition: transform 0.3s ease;
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dashboard.slide-out {
+  transform: translateX(-50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.add-category-button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-category-button:hover {
+  background-color: #0056b3;
+}
+
+/* Sliding Panel Styles */
+.sliding-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background-color: white;
+  border-right: 1px solid #ccc;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sliding-panel.show {
+  transform: translateX(0);
+}
+
+.sliding-panel-header {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.sliding-panel-header input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sliding-panel-header button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sliding-panel-header button:hover {
+  background-color: #0056b3;
+}
+
+.categories-tabs {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-bottom: 1px solid #ccc;
+}
+
+.category-tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  margin-right: 1px;
+}
+
+.category-tab.active {
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.category-content {
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.widgets-list {
+  margin-bottom: 20px;
 }
+
+.widget-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.widget-item input {
+  margin-right: 10px;
+}
+
+.sliding-panel-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #218838;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+/* Category Styles */
+.category {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category h3 {
+  margin-bottom: 15px;
+}
+
+/* Widgets Container */
+.widgets {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Widget Box */
+.widget {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  position: relative;
+}
+
+.widget h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.widget p {
+  font-size: 14px;
+  color: #666;
+}
+
+.remove-widget {
+  background-color: transparent;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Add Widget Form Styling */
+.add-widget-box {
+  background-color: #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.add-widget-box:hover {
+  background-color: #d0d0d0;
+}
+
+.add-widget-box .add-icon {
+  font-size: 24px;
+  color: #007bff;
+}
+
+.add-widget-form {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-widget-box.active .add-widget-form {
+  display: flex;
+}
+
+.add-widget-form input,
+.add-widget-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.add-widget-form button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-widget-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Add Category Form Styling */
+.add-category-form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.add-category-form input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-category-form button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-category-form button:hover {
+  background-color: #218838;
+}
+
+/* Widget Checkboxes */
+.widget-checkboxes {
+  margin-top: 20px;
+}
+
+.widget-checkbox {
+  margin-bottom: 10px;
+}
+
+.widget-checkbox label {
+  display: flex;
+  align-items: center;
+}
+
+.widget-checkbox input {
+  margin-right: 10px;
+}
+
+.sliding-panel {
+  position: fixed;
+  top: 0;
+  right: 0; /* Move the panel to the right */
+  height: 100%;
+  width: 50%;
+  background-color: white;
+  border-left: 1px solid #ccc; /* Change to border-left for right panel */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow should be on the left */
+  z-index: 1000;
+  overflow-y: auto;
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: transform 0.3s ease;
+}
+
+.sliding-panel.show {
+  transform: translateX(-50%);
+} 
+
+.dashboard-container {
+  display: flex;
+  /* width: 100vw; */
+  height: 100vh;
+  position: relative;
+}
+
+
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-category-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-category-button:hover {
+  background-color: #0056b3;
+}
+
+.categories-list {
+  margin-top: 20px;
+}
+
+
+
+.sliding-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sliding-panel-header input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.categories-tabs {
+  display: flex;
+  /* flex-direction: column; */
+  margin: 20px 0;
+}
+
+.category-tab {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.category-tab.active {
+  background-color: #e9ecef;
+  border-radius: 4px;
+}
+
+.category-content {
+  flex: 1;
+}
+
+.widgets-list {
+  margin-bottom: 20px;
+}
+
+.widget-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.widget-item input {
+  margin-right: 10px;
+}
+
+.sliding-panel-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirm-button, .cancel-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+
