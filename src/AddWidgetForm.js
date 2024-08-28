@@ -29,7 +29,10 @@ const AddWidgetForm = ({ addWidget, categoryId }) => {
   return (
     <div className={`add-widget-box ${formVisible ? "active" : ""}`} onClick={handleClick}>
       {!formVisible ? (
+        <div className="add-icon-div">
         <span className="add-icon">+</span>
+        <span className="add-icon-widget">Add Widget</span>
+        </div>
       ) : (
         <form
           className="add-widget-form"

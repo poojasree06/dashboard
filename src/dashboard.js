@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Category from "./Category";
 import AddCategoryForm from "./AddCategoryForm";
+// import { Link } from "react-router-dom";
 import "./App.css";
 
 const Dashboard = () => {
@@ -104,7 +105,8 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <div className="dashboard">
         <div className="dashboard-header">
-          <h1 className="dashboard-title">Dashboard</h1>
+          <h1 className="dashboard-title"><a href="/">Dashboard</a></h1>
+  
           {!showSlidingPanel && (
             <button
               className="add-category-button"
@@ -166,7 +168,7 @@ const Dashboard = () => {
                         onChange={() => handleCheckboxChange(category.id, widget.id)}
                       />
                       <label>
-                        <h4>{widget.name}</h4>
+                        <p>{widget.name}</p>
                       </label>
                     </div>
                   ))}
