@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboard from './Dashboard.js';
+import Dashboard from './Dashboard';
 // import { WidgetProvider } from './WidgetContext';
 function App() {
   return (
