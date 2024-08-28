@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Visit below link to view Live Dashboard
+https://dashboard-beta-tan.vercel.app/
 
 ## Features
 Dashboard Management: View and manage categories and widgets on the dashboard.<br/>
